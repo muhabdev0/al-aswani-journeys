@@ -38,4 +38,3 @@ export function useLang() {
   if (!ctx) throw new Error("useLang must be used within LanguageProvider");
   return ctx;
 }
-</content>
