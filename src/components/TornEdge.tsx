@@ -54,4 +54,3 @@ export function TornEdge({ color, className = "", height = 80, flip = false }: T
     </div>
   );
 }
-</content>
