@@ -6,7 +6,7 @@ type Ctx = {
   dir: "rtl" | "ltr";
   setLang: (l: Lang) => void;
   toggle: () => void;
-  t: (typeof translations)["en"];
+  t: (typeof translations)[Lang];
 };
 
 const LanguageContext = createContext<Ctx | null>(null);
