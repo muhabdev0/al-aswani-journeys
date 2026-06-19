@@ -59,4 +59,3 @@ export function PhoneLink({ light = false }: { light?: boolean }) {
     </a>
   );
 }
-</content>
