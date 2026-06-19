@@ -142,4 +142,3 @@ export const translations = {
     },
   },
 } as const;
-</content>
