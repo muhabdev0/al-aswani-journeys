@@ -223,7 +223,7 @@ function Content() {
       {/* 4. LIFESTYLE / HUMAN MOMENT */}
       <section
         id="lifestyle"
-        className="relative overflow-hidden bg-grass px-5 py-24 md:px-10 md:py-36"
+        className="relative bg-grass px-5 py-24 md:px-10 md:py-36"
       >
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 md:flex-row md:items-center md:justify-between">
           <Reveal className="max-w-md text-start">
