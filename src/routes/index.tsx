@@ -95,7 +95,7 @@ function Content() {
       <Header />
 
       {/* 1. HERO */}
-      <section className="relative isolate min-h-[100svh] bg-gradient-to-b from-sky-soft to-sky px-5 pt-28 md:px-10">
+      <section className="relative min-h-[100svh] bg-gradient-to-b from-sky-soft to-sky px-5 pt-28 md:px-10">
         <div className="pointer-events-none absolute right-[8%] top-24 h-24 w-24 rounded-full bg-paper/40 blur-xl" />
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 pb-40 pt-8 text-center md:pt-16">
           <Reveal>
