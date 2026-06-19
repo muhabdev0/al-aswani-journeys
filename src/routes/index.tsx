@@ -384,4 +384,3 @@ function Content() {
     </div>
   );
 }
-</content>
