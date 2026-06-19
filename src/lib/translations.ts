@@ -14,7 +14,8 @@ export const translations = {
     cta: { book: "Plan your trip", explore: "Explore", call: "Call us" },
     hero: {
       kicker: "From the Netherlands, across Europe",
-      title: "Discover Europe, the elegant way",
+      titleLine1: "Discover Europe",
+      titleLine2: "the elegant way",
       desc: "Private tourist journeys, trusted transportation, and Arabic-speaking chauffeurs — Al-Aswani turns every mile into a memory worth keeping.",
       cta: "Begin the journey",
     },
@@ -84,7 +85,8 @@ export const translations = {
     cta: { book: "خطّط لرحلتك", explore: "اكتشف", call: "اتصل بنا" },
     hero: {
       kicker: "من هولندا، إلى كل أنحاء أوروبا",
-      title: "اكتشف أوروبا بأسلوبٍ راقٍ",
+      titleLine1: "اكتشف أوروبا",
+      titleLine2: "بأسلوبٍ راقٍ",
       desc: "رحلات سياحية خاصة، ونقلٌ موثوق، وسائقون عربٌ يتحدثون لغتك — مع العصواني يتحوّل كل طريقٍ إلى ذكرى تستحق أن تبقى.",
       cta: "ابدأ الرحلة",
     },

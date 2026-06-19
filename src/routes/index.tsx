@@ -17,6 +17,7 @@ import { TornEdge } from "@/components/TornEdge";
 
 import heroScene from "@/assets/hero-scene.png";
 import manGrass from "@/assets/man-grass.png";
+import manGrassEn from "@/assets/man-grassEn.png";
 import promiseBg from "@/assets/promise-bg.jpg";
 import footerScene from "@/assets/footer-scene.jpg";
 import cardTrips from "@/assets/card-trips.jpg";
@@ -88,7 +89,7 @@ function Kicker({ children }: { children: React.ReactNode }) {
 }
 
 function Content() {
-  const { t, dir } = useLang();
+  const { t, dir, lang } = useLang();
 
   return (
     <div id="top" dir={dir} className="overflow-x-hidden bg-paper">
@@ -97,38 +98,43 @@ function Content() {
       {/* 1. HERO */}
       <section className="relative min-h-[100svh] bg-gradient-to-b from-sky-soft to-sky px-5 pt-28 md:px-10">
         <div className="pointer-events-none absolute right-[8%] top-24 h-24 w-24 rounded-full bg-paper/40 blur-xl" />
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 pb-40 pt-8 text-center md:pt-16">
-          <Reveal>
-            <Kicker>{t.hero.kicker}</Kicker>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="max-w-4xl text-balance text-5xl leading-[1.05] text-ink md:text-7xl lg:text-8xl">
-              {t.hero.title}
-            </h1>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <p className="max-w-xl text-pretty text-base leading-relaxed text-ink/75 md:text-lg">
-              {t.hero.desc}
-            </p>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-              <PillButton href="#contact">{t.hero.cta}</PillButton>
-              <PhoneLink />
-            </div>
-          </Reveal>
-        </div>
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 pb-40 pt-8 md:grid-cols-2 md:gap-16 md:pt-16 lg:gap-20">
+          <div className="flex min-w-0 flex-col gap-6 items-center text-center md:items-start md:justify-center md:gap-8 md:py-6 md:text-start lg:gap-10 lg:py-8">
+            <Reveal>
+              <Kicker>{t.hero.kicker}</Kicker>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="text-5xl leading-[1.05] text-ink md:text-6xl lg:text-7xl">
+                <span className="block whitespace-nowrap">{t.hero.titleLine1}</span>
+                <span className="block whitespace-nowrap">{t.hero.titleLine2}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="max-w-xl text-pretty text-base leading-relaxed text-ink/75 md:max-w-none md:text-lg lg:text-xl">
+                {t.hero.desc}
+              </p>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+                <PillButton href="#contact">{t.hero.cta}</PillButton>
+                <PhoneLink />
+              </div>
+            </Reveal>
+          </div>
 
-        <motion.img
-          src={heroScene}
-          alt={dir === "rtl" ? "مشهد طبيعي: شجرة ومنزل صغير على تلة" : "Scenic cutout of a tree and small house on a hill"}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          width={1280}
-          height={960}
-          className="cutout-shadow float-soft absolute bottom-16 left-1/2 w-[min(620px,82vw)] -translate-x-1/2"
-        />
+          <div className="flex min-w-0 items-center justify-center md:justify-start md:py-6 lg:py-8">
+            <motion.img
+              src={heroScene}
+              alt={dir === "rtl" ? "مشهد طبيعي: شجرة ومنزل صغير على تلة" : "Scenic cutout of a tree and small house on a hill"}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              width={1280}
+              height={960}
+              className="cutout-shadow float-soft w-full max-w-md md:max-w-full"
+            />
+          </div>
+        </div>
         <TornEdge color="var(--sky)" />
       </section>
 
@@ -237,7 +243,7 @@ function Content() {
           </Reveal>
           <Reveal delay={0.15} className="relative w-full max-w-xl">
             <img
-              src={manGrass}
+              src={lang === "en" ? manGrassEn : manGrass}
               alt={
                 dir === "rtl"
                   ? "رجل مسترخٍ مستلقٍ على العشب وحذاؤه ظاهر"
