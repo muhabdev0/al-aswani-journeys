@@ -18,18 +18,25 @@ function buildPath(seed: number, height: number) {
     rnd = (rnd * 9301 + 49297) % 233280;
     return rnd / 233280;
   };
-  const pts: string[] = [];
+  const pts: Array<[number, number]> = [];
   for (let i = 0; i <= steps; i++) {
     const x = (W / steps) * i;
-    // base ragged line with occasional deep notches for a hand-ripped feel
-    const base = height * 0.45;
-    const jitter = rand() * height * 0.4;
-    const notch = rand() > 0.86 ? rand() * height * 0.35 : 0;
-    const y = base + jitter + notch;
-    pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+    // torn bottom line: stays inside the viewBox, with occasional deep notches
+    const base = height * 0.32;
+    const jitter = rand() * height * 0.42;
+    const notch = rand() > 0.85 ? rand() * height * 0.22 : 0;
+    const y = Math.min(height - 1, base + jitter + notch);
+    pts.push([x, y]);
   }
-  return `M0,0 L${W},0 L${W},${height} L${pts.join(" L")} L0,${height} Z`;
+  // top edge flat (y=0), bottom edge is the ragged torn line walked right→left
+  const body = pts
+    .slice()
+    .reverse()
+    .map(([x, y]) => `L${x.toFixed(1)},${y.toFixed(1)}`)
+    .join(" ");
+  return `M0,0 L${W},0 ${body} Z`;
 }
+
 
 export function TornEdge({ color, className = "", height = 80, flip = false }: TornEdgeProps) {
   const d = useMemo(() => buildPath(7, height), [height]);
