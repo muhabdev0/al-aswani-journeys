@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Globe } from "lucide-react";
 import { useLang } from "@/lib/language";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 export function Header() {
   const { t, dir, lang, toggle } = useLang();
@@ -19,13 +20,12 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10 md:py-6">
-        <a href="#top" className="flex items-center gap-2 leading-none">
-          <span className="font-serif text-2xl font-semibold text-ink md:text-3xl">
-            {t.brand}
-          </span>
-          <span className="hidden text-[11px] uppercase tracking-[0.25em] text-muted-foreground sm:block">
-            {t.tagline}
-          </span>
+        <a href="#top" className="shrink-0">
+          <img
+            src={logo}
+            alt="Al Aswani Tourism & Transport"
+            className="h-10 w-auto rounded-md md:h-12"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
